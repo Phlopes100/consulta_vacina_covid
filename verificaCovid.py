@@ -14,10 +14,11 @@ class ConsultaVacina:
     def __init__(self):
         self.site_consulta = 'https://vacinacao.sms.fortaleza.ce.gov.br/pesquisa/atendidos'
         #aqui voce coloca o caminho do arquivo da listagem.xlsx
-        self.listagem_covid = pd.read_excel(r"C:\Users\Pedro TI\Desktop\ProjetosFretcar\listagemCovid\listagem.xlsx")
+        self.listagem_covid = pd.read_excel(r"insira o caminho do arquivo")
         s=Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=s)
 
+    #criei essa função para organizar mais o código.
     def inicializador(self):
         self.navegacao()
 
@@ -32,7 +33,6 @@ class ConsultaVacina:
             print('Verificando... ')
 
             #o arquivo listagem tem 2 colunas NOME e CPF
-            
             nome = self.listagem_covid['NOME'][i]
             cpf = self.listagem_covid['CPF'][i]
             verifica_cpf = len(f'{cpf}')
